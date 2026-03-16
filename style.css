@@ -980,10 +980,10 @@ button { cursor: pointer; font-family: var(--font); }
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    background: var(--primary);
+    background: transparent;
   }
   .footer-logo {
-    background: var(--primary);
+    background: transparent;
   }
   .about { padding: 56px 20px; text-align: center; }
   .about-left { text-align: center; margin: 0 auto; }
