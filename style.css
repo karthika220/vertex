@@ -575,7 +575,7 @@ button { cursor: pointer; font-family: var(--font); }
   border: none;
   color: var(--white);
   line-height: 1;
-  padding: 12px 14px;
+  padding: 0;
   opacity: 0.7;
   transition: all var(--transition);
   cursor: pointer;
@@ -585,6 +585,7 @@ button { cursor: pointer; font-family: var(--font); }
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .slider-arrow:hover { 
   opacity: 1;
@@ -602,11 +603,11 @@ button { cursor: pointer; font-family: var(--font); }
 }
 .reviews-slider-wrap {
   max-width: 1400px;
-  margin: auto;
+  margin: 0 auto;
   position: relative;
   display: flex;
   align-items: center;
-  overflow: visible;
+  overflow: hidden;
   width: 100%;
   padding: 0 60px;
 }
@@ -615,6 +616,8 @@ button { cursor: pointer; font-family: var(--font); }
   gap: 20px;
   width: max-content;
   transition: transform 0.45s ease;
+  flex: 1;
+  overflow: hidden;
 }
 .review-card {
   background: #f3f4f6;
