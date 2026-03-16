@@ -137,10 +137,17 @@ button { cursor: pointer; font-family: var(--font); }
   align-items: center;
   gap: 40px;
 }
+.nav-logo {
+  background: var(--secondary);
+  padding: 8px;
+  border-radius: 8px;
+  display: inline-block;
+}
 .nav-logo img {
   height: 58px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 .nav-links {
   display: flex;
@@ -830,10 +837,17 @@ button { cursor: pointer; font-family: var(--font); }
   gap: 60px;
   align-items: flex-start;
 }
+.footer-brand {
+  background: var(--primary);
+  padding: 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
 .footer-logo {
   height: 80px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 .footer-col {
   display: flex;
