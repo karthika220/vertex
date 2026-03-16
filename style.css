@@ -29,7 +29,7 @@ body {
   background: var(--primary);
   color: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -566,36 +566,55 @@ button { cursor: pointer; font-family: var(--font); }
 .btn-review:hover { background: #1558b0; }
 
 .slider-arrow {
-  background: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
   color: var(--white);
-  font-size: 2.5rem;
   line-height: 1;
-  padding: 8px 10px;
-  opacity: 0.6;
-  transition: opacity var(--transition);
-  flex-shrink: 0;
-}
-.slider-arrow:hover { opacity: 1; }
-.reviews-slider-wrap {
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 12px 14px;
+  opacity: 0.7;
+  transition: all var(--transition);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+}
+.slider-arrow:hover { 
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+.slider-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+.slider-prev {
+  left: 0;
+}
+.slider-next {
+  right: 0;
+}
+.reviews-slider-wrap {
+  max-width: 1400px;
+  margin: auto;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  width: 100%;
+  padding: 0 60px;
 }
 .reviews-track {
   display: flex;
   gap: 20px;
-  overflow: hidden;
-  flex: 1;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  max-width: 100%;
-  will-change: transform;
+  width: max-content;
+  transition: transform 0.45s ease;
 }
 .review-card {
   background: #f3f4f6;
@@ -863,7 +882,11 @@ button { cursor: pointer; font-family: var(--font); }
   .footer-container { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-brand { grid-column: 1 / -1; }
   .reviews { padding: 56px 32px; }
-  .review-card { width: calc((100% - 20px) / 2); }
+  .review-card { 
+    width: calc((100% - 20px) / 2);
+    min-width: calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
+  }
 }
 
 @media (max-width: 640px) {
@@ -874,8 +897,27 @@ button { cursor: pointer; font-family: var(--font); }
   .services-grid { grid-template-columns: 1fr; }
   .contact-form-grid { grid-template-columns: 1fr; }
   .faq { padding: 48px 20px 64px; }
-  .review-card { width: 100%; }
+  .reviews-slider-wrap {
+    max-width: 100%;
+  }
+  .review-card { 
+    width: calc(100vw - 40px);
+    min-width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
+  }
   .reviews { padding: 48px 20px; }
+  .slider-prev {
+    left: -20px;
+  }
+  .slider-next {
+    right: -20px;
+  }
+  .slider-arrow {
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
   .footer { padding: 40px 20px 28px; }
   .footer-container { grid-template-columns: 1fr; gap: 28px; }
   .about { padding: 56px 20px; }
@@ -889,16 +931,8 @@ button { cursor: pointer; font-family: var(--font); }
 /* ============================================================
    FLOATING ACTION BUTTONS
 ============================================================ */
-.floating-buttons {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 999;
-}
 .fab-btn {
+  position: fixed;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -910,6 +944,8 @@ button { cursor: pointer; font-family: var(--font); }
   box-shadow: 0 4px 12px rgba(0, 210, 255, 0.4);
   transition: all var(--transition);
   text-decoration: none;
+  z-index: 999;
+  bottom: 30px;
 }
 .fab-btn:hover {
   transform: scale(1.1);
@@ -919,28 +955,38 @@ button { cursor: pointer; font-family: var(--font); }
   width: 24px;
   height: 24px;
 }
+.fab-call {
+  left: 30px;
+}
+.fab-whatsapp {
+  right: 30px;
+}
 
 @media (max-width: 960px) {
-  .floating-buttons {
-    bottom: 20px;
-    right: 20px;
-  }
   .fab-btn {
+    bottom: 20px;
     width: 52px;
     height: 52px;
+  }
+  .fab-call {
+    left: 20px;
+  }
+  .fab-whatsapp {
+    right: 20px;
   }
 }
 
 @media (max-width: 640px) {
-  .floating-buttons {
-    bottom: 20px;
-    right: 20px;
-    flex-direction: row;
-    gap: 10px;
-  }
   .fab-btn {
+    bottom: 20px;
     width: 50px;
     height: 50px;
+  }
+  .fab-call {
+    left: 20px;
+  }
+  .fab-whatsapp {
+    right: 20px;
   }
   .fab-btn svg {
     width: 22px;

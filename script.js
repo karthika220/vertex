@@ -26,43 +26,49 @@ let currentSlide = 0;
 let touchStartX = 0;
 let touchEndX = 0;
 
+function getVisibleCount() {
+  const w = window.innerWidth;
+  if (w < 640) return 1;  // Mobile: 1 card
+  if (w < 960) return 2;  // Tablet: 2 cards
+  return 3;                // Desktop: 3 cards
+}
+
 function slideReviews(dir) {
   const track = document.getElementById('reviewsTrack');
+  const wrapper = track.closest('.reviews-slider-wrap');
   const cards = track.querySelectorAll('.review-card');
-  if (!cards.length || !cards[0]) return;
+  if (!cards.length || !wrapper) return;
+
+  const visibleCount = getVisibleCount();
   
-  const visibleCount = 3; // Always show 3 cards
+  // Calculate max slide: can slide until the last visibleCount cards are shown
+  // For 3 cards visible, maxSlide allows showing cards 7, 8, 9 (if we have 9 cards)
   const maxSlide = Math.max(0, cards.length - visibleCount);
 
-  // Calculate new slide position
-  const newSlide = currentSlide + dir;
-  
-  // Prevent going beyond boundaries
-  if (newSlide < 0) {
-    currentSlide = 0;
-  } else if (newSlide > maxSlide) {
-    currentSlide = maxSlide;
-  } else {
-    currentSlide = newSlide;
+  currentSlide += dir;
+
+  if (currentSlide < 0) currentSlide = 0;
+  if (currentSlide > maxSlide) currentSlide = maxSlide;
+
+  // Get card width from actual rendered size
+  const cardWidth = cards[0].offsetWidth || cards[0].getBoundingClientRect().width;
+  const gap = 20;
+  const wrapperWidth = wrapper.offsetWidth;
+
+  // Calculate translate position
+  let translate = currentSlide * (cardWidth + gap);
+
+  // When at max slide, ensure last cards align perfectly with wrapper edge
+  if (currentSlide === maxSlide) {
+    const lastCardIndex = cards.length - 1;
+    const lastCardRightEdge = (lastCardIndex * (cardWidth + gap)) + cardWidth;
+    // Position so last card's right edge aligns with wrapper's right edge
+    translate = Math.max(0, lastCardRightEdge - wrapperWidth);
   }
 
-  // Get actual card width from computed style
-  const cardWidth = cards[0].offsetWidth;
-  const gap = 20; // gap between cards
-  const translateX = currentSlide * (cardWidth + gap);
-  
-  // Calculate maximum allowed translate (should show last 3 cards)
-  const totalCardsWidth = cards.length * cardWidth + (cards.length - 1) * gap;
-  const trackWidth = track.offsetWidth;
-  const maxTranslate = Math.max(0, totalCardsWidth - trackWidth);
-  
-  // Ensure we don't go beyond the last position
-  const finalTranslate = Math.min(translateX, maxTranslate);
-  
-  track.style.transform = `translateX(-${finalTranslate}px)`;
+  track.style.transform = `translateX(-${translate}px)`;
   track.style.transition = 'transform 0.45s ease';
-  
-  // Update arrow button states
+
   updateSliderArrows();
 }
 
@@ -71,7 +77,7 @@ function updateSliderArrows() {
   const cards = track.querySelectorAll('.review-card');
   if (!cards.length) return;
   
-  const visibleCount = 3;
+  const visibleCount = getVisibleCount();
   const maxSlide = Math.max(0, cards.length - visibleCount);
   const prevBtn = document.querySelector('.slider-prev');
   const nextBtn = document.querySelector('.slider-next');
@@ -117,19 +123,88 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('resize', () => {
-  currentSlide = 0;
   const track = document.getElementById('reviewsTrack');
   if (track) {
-    track.style.transform = 'translateX(0)';
-    setTimeout(() => {
-      updateSliderArrows();
-    }, 100);
+    const cards = track.querySelectorAll('.review-card');
+    if (cards.length) {
+      const visibleCount = getVisibleCount();
+      const maxSlide = Math.max(0, cards.length - visibleCount);
+      
+      // If current slide exceeds new max, reset to max
+      if (currentSlide > maxSlide) {
+        currentSlide = maxSlide;
+      }
+      
+      // Recalculate card widths and positions
+      setTimeout(() => {
+        setCardWidths();
+        slideReviews(0); // Recalculate positions after resize
+        updateSliderArrows();
+      }, 100);
+    }
   }
 });
 
-// Initialize slider arrows on page load
+// Initialize slider arrows on page load and set card widths
 document.addEventListener('DOMContentLoaded', () => {
-  updateSliderArrows();
+  // Wait a bit for layout to settle
+  setTimeout(() => {
+    setCardWidths();
+    currentSlide = 0;
+    slideReviews(0);
+    updateSliderArrows();
+  }, 100);
+});
+
+// Set card widths based on wrapper width
+function setCardWidths() {
+  const wrapper = document.querySelector('.reviews-slider-wrap');
+  const cards = document.querySelectorAll('.review-card');
+  if (!wrapper || !cards.length) return;
+
+  const visibleCount = getVisibleCount();
+  const wrapperWidth = wrapper.offsetWidth;
+  const gap = 20;
+  
+  // Calculate card width based on wrapper width
+  const cardWidth = (wrapperWidth - (gap * (visibleCount - 1))) / visibleCount;
+  
+  // Apply width to all cards
+  cards.forEach(card => {
+    card.style.width = `${cardWidth}px`;
+    card.style.minWidth = `${cardWidth}px`;
+    card.style.maxWidth = `${cardWidth}px`;
+  });
+  
+  // Reset slider position after setting widths
+  const track = document.getElementById('reviewsTrack');
+  if (track) {
+    track.style.transform = 'translateX(0)';
+  }
+}
+
+// Update card widths on resize
+window.addEventListener('resize', () => {
+  const track = document.getElementById('reviewsTrack');
+  if (track) {
+    const cards = track.querySelectorAll('.review-card');
+    if (cards.length) {
+      const visibleCount = getVisibleCount();
+      const maxSlide = Math.max(0, cards.length - visibleCount);
+      
+      // If current slide exceeds new max, reset to max
+      if (currentSlide > maxSlide) {
+        currentSlide = maxSlide;
+      }
+      
+      // Recalculate card widths and positions
+      setTimeout(() => {
+        setCardWidths();
+        slideReviews(0); // Recalculate positions after resize
+        updateSliderArrows();
+      }, 100);
+    }
+  }
 });
 
 /* ---- FAQ Accordion ---- */
@@ -160,10 +235,6 @@ function handleHeroForm() {
   if (!phone || phone.length < 10) { alert('Please enter a valid phone number.'); return; }
   if (!service) { alert('Please select a service.'); return; }
 
-  // Send WhatsApp message
-  const msg = encodeURIComponent(`Hi! I'd like to book an appointment.\nName: ${name}\nPhone: ${phone}\nService: ${service}`);
-  window.open(`https://wa.me/918008647733?text=${msg}`, '_blank');
-  
   // Redirect to thank you page
   window.location.href = 'thank-you.html';
 }
@@ -178,10 +249,6 @@ function handleContactForm() {
   if (!phone || phone.length < 10) { alert('Please enter a valid phone number.'); return; }
   if (!service) { alert('Please select a service.'); return; }
 
-  // Send WhatsApp message
-  const msg = encodeURIComponent(`Hi! I'd like to enquire about your services.\nName: ${name}\nPhone: ${phone}\nService: ${service}`);
-  window.open(`https://wa.me/918008647733?text=${msg}`, '_blank');
-  
   // Redirect to thank you page
   window.location.href = 'thank-you.html';
 }
