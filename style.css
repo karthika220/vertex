@@ -946,6 +946,17 @@ button { cursor: pointer; font-family: var(--font); }
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    text-align: center;
+  }
+  .reviewer-info {
+    justify-content: center;
+  }
+  .reviewer-name,
+  .review-time {
+    text-align: left;
+  }
+  .stars {
+    text-align: center;
   }
   .reviews { padding: 48px 20px; text-align: center; }
   .reviews-header-bar { justify-content: center; }
@@ -969,6 +980,17 @@ button { cursor: pointer; font-family: var(--font); }
   .about-features { justify-content: center; }
   .about-feature { justify-content: center; text-align: center; }
   .why-us { padding: 56px 20px; text-align: center; }
+  .why-images {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .why-img {
+    width: 100%;
+    max-width: 360px;
+    height: 260px;
+    object-fit: cover;
+  }
   .why-content { text-align: center; }
   .why-cta { justify-content: center; }
   .ppf-highlight { padding: 56px 20px; text-align: center; }
