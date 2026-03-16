@@ -909,7 +909,7 @@ button { cursor: pointer; font-family: var(--font); }
   .faq { padding: 48px 20px 64px; }
   .reviews-slider-wrap {
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0 20px 0 16px;
   }
   .review-card { 
     width: calc(100vw - 60px);
