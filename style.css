@@ -844,6 +844,10 @@ button { cursor: pointer; font-family: var(--font); }
   display: inline-block;
 }
 .footer-logo {
+  background: var(--primary);
+  display: block;
+}
+.footer-logo {
   height: 80px;
   width: auto;
   object-fit: contain;
@@ -975,6 +979,16 @@ button { cursor: pointer; font-family: var(--font); }
   }
   .footer { padding: 40px 20px 28px; text-align: center; }
   .footer-container { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .footer-brand {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--primary);
+  }
+  .footer-logo {
+    background: var(--primary);
+  }
   .about { padding: 56px 20px; text-align: center; }
   .about-left { text-align: center; margin: 0 auto; }
   .about-features { justify-content: center; }
