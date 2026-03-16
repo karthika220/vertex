@@ -884,7 +884,13 @@ button { cursor: pointer; font-family: var(--font); }
   .footer-brand { grid-column: 1 / -1; }
   .reviews { padding: 56px 32px; }
   .reviews-slider-wrap {
-    padding: 0 55px;
+    padding: 0 32px;
+  }
+  .slider-prev {
+    left: -20px;
+  }
+  .slider-next {
+    right: -20px;
   }
   .review-card { 
     width: calc((100% - 20px) / 2);
