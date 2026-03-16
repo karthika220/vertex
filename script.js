@@ -122,40 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-window.addEventListener('resize', () => {
-  const track = document.getElementById('reviewsTrack');
-  if (track) {
-    const cards = track.querySelectorAll('.review-card');
-    if (cards.length) {
-      const visibleCount = getVisibleCount();
-      const maxSlide = Math.max(0, cards.length - visibleCount);
-      
-      // If current slide exceeds new max, reset to max
-      if (currentSlide > maxSlide) {
-        currentSlide = maxSlide;
-      }
-      
-      // Recalculate card widths and positions
-      setTimeout(() => {
-        setCardWidths();
-        slideReviews(0); // Recalculate positions after resize
-        updateSliderArrows();
-      }, 100);
-    }
-  }
-});
-
-// Initialize slider arrows on page load and set card widths
-document.addEventListener('DOMContentLoaded', () => {
-  // Wait a bit for layout to settle
-  setTimeout(() => {
-    setCardWidths();
-    currentSlide = 0;
-    slideReviews(0);
-    updateSliderArrows();
-  }, 100);
-});
-
 // Set card widths based on wrapper width
 function setCardWidths() {
   const wrapper = document.querySelector('.reviews-slider-wrap');
@@ -183,7 +149,18 @@ function setCardWidths() {
   }
 }
 
-// Update card widths on resize
+// Initialize slider on page load and handle resize
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait a bit for layout to settle
+  setTimeout(() => {
+    setCardWidths();
+    currentSlide = 0;
+    slideReviews(0);
+    updateSliderArrows();
+  }, 100);
+});
+
+// Update card widths on resize (single handler)
 window.addEventListener('resize', () => {
   const track = document.getElementById('reviewsTrack');
   if (track) {
