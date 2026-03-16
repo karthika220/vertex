@@ -54,15 +54,13 @@ function slideReviews(dir) {
   const gap = 20;
   const wrapperWidth = wrapper.offsetWidth;
 
-  // Calculate translate position
+  // Calculate translate position - ensure exactly visibleCount cards are shown
   let translate = currentSlide * (cardWidth + gap);
-
-  // When at max slide, ensure last cards align perfectly with wrapper edge
-  if (currentSlide === maxSlide) {
-    const lastCardIndex = cards.length - 1;
-    const lastCardRightEdge = (lastCardIndex * (cardWidth + gap)) + cardWidth;
-    // Position so last card's right edge aligns with wrapper's right edge
-    translate = Math.max(0, lastCardRightEdge - wrapperWidth);
+  
+  // Ensure we don't show more than visibleCount cards
+  const maxTranslate = (cards.length - visibleCount) * (cardWidth + gap);
+  if (translate > maxTranslate) {
+    translate = maxTranslate;
   }
 
   track.style.transform = `translateX(-${translate}px)`;
@@ -124,10 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Set card widths based on wrapper width
 function setCardWidths() {
   const wrapper = document.querySelector('.reviews-slider-wrap');
+  const track = document.getElementById('reviewsTrack');
   const cards = document.querySelectorAll('.review-card');
-  if (!wrapper || !cards.length) return;
+  if (!wrapper || !cards.length || !track) return;
 
   const visibleCount = getVisibleCount();
+  // Get the wrapper's available width (accounting for padding on right side)
   const wrapperWidth = wrapper.offsetWidth;
   const gap = 20;
   
@@ -142,9 +142,9 @@ function setCardWidths() {
   });
   
   // Reset slider position after setting widths
-  const track = document.getElementById('reviewsTrack');
   if (track) {
     track.style.transform = 'translateX(0)';
+    currentSlide = 0;
   }
 }
 

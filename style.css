@@ -606,7 +606,7 @@ button { cursor: pointer; font-family: var(--font); }
   position: relative;
   display: flex;
   align-items: center;
-  overflow: visible;
+  overflow: hidden;
   width: 100%;
   padding: 0 28px 0 0;
 }
@@ -616,6 +616,8 @@ button { cursor: pointer; font-family: var(--font); }
   width: max-content;
   transition: transform 0.45s ease;
   margin-left: 0;
+  flex: 1;
+  min-width: 0;
 }
 .review-card {
   background: #f3f4f6;
