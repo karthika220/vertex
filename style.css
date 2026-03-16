@@ -909,12 +909,12 @@ button { cursor: pointer; font-family: var(--font); }
   .faq { padding: 48px 20px 64px; }
   .reviews-slider-wrap {
     max-width: 100%;
-    padding: 0 20px 0 16px;
+    padding: 0 20px 0 0;
   }
   .review-card { 
-    width: calc(100vw - 60px);
-    min-width: calc(100vw - 60px);
-    max-width: calc(100vw - 60px);
+    width: calc(100vw - 40px);
+    min-width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
   }
   .reviews { padding: 48px 20px; }
   .slider-prev {
