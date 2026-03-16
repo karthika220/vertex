@@ -882,6 +882,9 @@ button { cursor: pointer; font-family: var(--font); }
   .footer-container { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-brand { grid-column: 1 / -1; }
   .reviews { padding: 56px 32px; }
+  .reviews-slider-wrap {
+    padding: 0 55px;
+  }
   .review-card { 
     width: calc((100% - 20px) / 2);
     min-width: calc((100% - 20px) / 2);
@@ -899,24 +902,26 @@ button { cursor: pointer; font-family: var(--font); }
   .faq { padding: 48px 20px 64px; }
   .reviews-slider-wrap {
     max-width: 100%;
+    padding: 0 50px;
   }
   .review-card { 
-    width: calc(100vw - 40px);
-    min-width: calc(100vw - 40px);
-    max-width: calc(100vw - 40px);
+    width: calc(100vw - 100px);
+    min-width: calc(100vw - 100px);
+    max-width: calc(100vw - 100px);
   }
   .reviews { padding: 48px 20px; }
   .slider-prev {
-    left: -20px;
+    left: 0;
   }
   .slider-next {
-    right: -20px;
+    right: 0;
   }
   .slider-arrow {
     font-size: 22px;
     width: 40px;
     height: 40px;
     padding: 8px;
+    background: rgba(0, 0, 0, 0.6);
   }
   .footer { padding: 40px 20px 28px; }
   .footer-container { grid-template-columns: 1fr; gap: 28px; }
