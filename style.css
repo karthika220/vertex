@@ -608,7 +608,7 @@ button { cursor: pointer; font-family: var(--font); }
   align-items: center;
   overflow: visible;
   width: 100%;
-  padding: 0 28px 0 20px;
+  padding: 0 28px 0 0;
 }
 .reviews-track {
   display: flex;
@@ -884,7 +884,7 @@ button { cursor: pointer; font-family: var(--font); }
   .footer-brand { grid-column: 1 / -1; }
   .reviews { padding: 56px 32px; }
   .reviews-slider-wrap {
-    padding: 0 32px 0 24px;
+    padding: 0 32px 0 0;
   }
   .slider-prev {
     left: -20px;
@@ -893,9 +893,9 @@ button { cursor: pointer; font-family: var(--font); }
     right: -20px;
   }
   .review-card { 
-    width: calc((100% - 20px) / 2);
-    min-width: calc((100% - 20px) / 2);
-    max-width: calc((100% - 20px) / 2);
+    width: calc((100% - 40px) / 3);
+    min-width: calc((100% - 40px) / 3);
+    max-width: calc((100% - 40px) / 3);
   }
 }
 

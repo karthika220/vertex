@@ -29,8 +29,7 @@ let touchEndX = 0;
 function getVisibleCount() {
   const w = window.innerWidth;
   if (w < 640) return 1;  // Mobile: 1 card
-  if (w < 960) return 2;  // Tablet: 2 cards
-  return 3;                // Desktop: 3 cards
+  return 3;                // Tablet & Desktop: 3 cards
 }
 
 function slideReviews(dir) {
