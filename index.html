@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detailing Vertex – Luxury That Lasts on Every Layer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SECTION 1: NAVBAR
+  ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="assets/Logo.png" alt="Detailing Vertex Logo" />
+      </a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://wa.me/918008647733" target="_blank" class="btn-whatsapp" aria-label="WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.855L.057 23.625a.75.75 0 0 0 .918.918l5.771-1.474A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.504-5.234-1.384l-.374-.214-3.882.993.996-3.87-.228-.386A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn-primary">Book Your Appointment</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn-primary">Book Your Appointment</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SECTION 2: HERO
+  ============================================================ -->
+  <section class="hero" id="home">
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="assets/Hero Video.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-heading">
+          Protect Your Car with<br />
+          Expert Detailing Services<br />
+          in Secunderabad
+        </h1>
+        <p class="hero-sub">
+          The Detailing Vertex provides professional paint protection
+          film, all kinds of coatings, and car detailing services for
+          complete car care solutions.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Schedule Your Appointment</a>
+          <a href="https://maps.google.com" target="_blank" class="btn-outline">Get Directions</a>
+        </div>
+      </div>
+
+      <div class="hero-form-card">
+        <div class="form-group">
+          <label for="hName">Name<span class="req">*</span></label>
+          <input type="text" id="hName" placeholder="Your Full Name" />
+        </div>
+        <div class="form-group">
+          <label for="hPhone">Phone No<span class="req">*</span></label>
+          <input type="tel" id="hPhone" placeholder="Your Contact No" />
+        </div>
+        <div class="form-group">
+          <label for="hService">Select Service<span class="req">*</span></label>
+          <div class="select-wrap">
+            <select id="hService">
+              <option value="" disabled selected>Select Service</option>
+              <option>Paint Protection Film</option>
+              <option>Ceramic Coating</option>
+              <option>Interior Foam Cleaning</option>
+              <option>Car Painting</option>
+              <option>Graphene Coating</option>
+              <option>Sunfilm Protection</option>
+            </select>
+            <svg class="select-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="18">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+        <button class="btn-primary btn-full" onclick="handleHeroForm()">Schedule Your Appointment</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3: ABOUT US
+  ============================================================ -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-left">
+        <p class="section-label">About Us</p>
+        <h2 class="section-heading">Professional Detailing with<br />Trusted Results</h2>
+        <p class="section-body">
+          The Detailing Vertex offers premium car care using high-quality
+          products, advanced techniques and professional workmanship,
+          from deep car cleaning to ceramic coatings.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="feature-icon">
+              <img src="assets/Section 2/Icon 1.png" alt="Flawless Results" />
+            </div>
+            <div>
+              <h4>Flawless Results</h4>
+              <p>Precision detailing delivers lasting shine, protection, and showroom-level finish.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">
+              <img src="assets/Section 2/Icon 2.png" alt="Trusted Professionals" />
+            </div>
+            <div>
+              <h4>Trusted Professionals</h4>
+              <p>Certified experts provide reliable, high-quality car detailing services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-number">2+</span>
+          <div class="stat-divider"></div>
+          <span class="stat-label">YEARS OF EXPERTISE</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">6</span>
+          <div class="stat-divider"></div>
+          <span class="stat-label">PREMIUM DETAILING SOLUTIONS</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <div class="stat-divider"></div>
+          <span class="stat-label">SATISFIED CUSTOMERS MONTHLY</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4: WHY WE STAND OUT
+  ============================================================ -->
+  <section class="why-us">
+    <div class="why-images">
+      <img src="assets/Section 3/Image 1.jpg" alt="Car detailing professional" class="why-img" />
+      <img src="assets/Section 3/Image 2.jpg" alt="Luxury car close-up" class="why-img" />
+    </div>
+    <div class="why-content">
+      <p class="section-label">Why We Stand Out</p>
+      <h2 class="section-heading">Professional Car Services<br />For You</h2>
+      <p class="section-body">
+        We offer expert car detailing with close attention to
+        every detail and a customer-first approach. Our
+        professionals ensure each vehicle receives superior
+        care and premium finish.
+      </p>
+      <div class="why-cta">
+        <a href="#contact" class="btn-primary">Get Free Estimate</a>
+        <a href="#contact" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5: SERVICES
+  ============================================================ -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <p class="section-label">Services</p>
+      <h2 class="section-heading">Complete Car Detailing<br />Services in Secunderabad</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="assets/Section 4/Paint Protection Film.jpg" alt="Paint Protection Film" />
+        <div class="service-info">
+          <h3>Paint Protection Film</h3>
+          <p>PPF installation with 2-Year Accident Protection</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="assets/Section 4/Ceramic Coating.jpg" alt="Ceramic Coating" />
+        <div class="service-info">
+          <h3>Ceramic Coating</h3>
+          <p>PPF installation with 2-Year Accident Protection</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="assets/Section 4/Interior Foam Cleaning.jpg" alt="Interior Foam Cleaning" />
+        <div class="service-info">
+          <h3>Interior Foam Cleaning</h3>
+          <p>PPF installation with 2-Year Accident Protection</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="assets/Section 4/Car Wash & Steam Clean.jpg" alt="Car Painting" />
+        <div class="service-info">
+          <h3>Car Painting</h3>
+          <p>PPF installation with 2-Year Accident Protection</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="assets/Section 4/Graphene Coating.jpg" alt="Graphene Coating" />
+        <div class="service-info">
+          <h3>Graphene Coating</h3>
+          <p>PPF installation with 2-Year Accident Protection</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="assets/Section 4/Sunfilm Protection.jpg" alt="Sunfilm Protection" />
+        <div class="service-info">
+          <h3>Sunfilm Protection</h3>
+          <p>PPF installation with 2-Year Accident Protection</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6: PPF HIGHLIGHT
+  ============================================================ -->
+  <section class="ppf-highlight">
+    <div class="ppf-content">
+      <h2 class="section-heading">PPF Protection Made Worth<br />Every Rupee</h2>
+      <p class="section-body">
+        Get industry-grade Paint Protection Film applied by
+        certified professionals in Secunderabad. Our exclusive
+        2-Year Accident Protection means if your car gets into
+        an accident within 2 years, we redo the PPF on the
+        affected area at no cost to you.
+      </p>
+      <div class="ppf-cta">
+        <a href="#contact" class="btn-primary">Book Protection</a>
+        <a href="#contact" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+    <div class="ppf-image">
+      <img src="assets/Section 5/Image.jpg" alt="PPF professional application" />
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7: GOOGLE REVIEWS
+  ============================================================ -->
+  <section class="reviews">
+    <div class="reviews-header-bar">
+      <div class="google-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="72" height="24">
+          <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
+          <path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.3 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/>
+          <path fill="#FBBC05" d="M24 46c5.5 0 10.5-1.8 14.4-5l-6.6-5.5C29.8 36.9 27 38 24 38c-6.1 0-10.7-4.1-11.8-9.5l-7.1 5.5C8.4 41.9 15.6 46 24 46z"/>
+          <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.6 2-1.8 3.7-3.3 5l6.6 5.5C42.8 35.2 45 29.9 45 24c0-1.3-.2-2.7-.5-4z"/>
+        </svg>
+        <span class="badge-label">Google</span>
+        <span class="badge-excellent">Excellent</span>
+        <span class="stars-row">★★★★★</span>
+        <span class="badge-score">4.7</span>
+        <span class="badge-count">| 74 reviews</span>
+      </div>
+      <a href="https://g.page/r/detailingvertex" target="_blank" class="btn-review">Write a review</a>
+    </div>
+
+    <div class="reviews-slider-wrap">
+      <button class="slider-arrow slider-prev" onclick="slideReviews(-1)" aria-label="Previous">&#8249;</button>
+      <div class="reviews-track" id="reviewsTrack">
+
+        <div class="review-card">
+          <div class="reviewer-info">
+            <div class="avatar" style="background:#E57373;">KV</div>
+            <div>
+              <p class="reviewer-name">Kuppa V.</p>
+              <p class="review-time">6 months ago</p>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">Very happy with the PPF work done on my car. Prashanth explained everything clearly and took care of all the details. Highly recommend his service for anyone looking for quality car detailing.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="reviewer-info">
+            <div class="avatar" style="background:#42A5F5;">AV</div>
+            <div>
+              <p class="reviewer-name">Anudeep V.</p>
+              <p class="review-time">6 months ago</p>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">Extremely impressed with Prashanth's expertise and dedication! He provided top-notch service and went above and beyond to ensure my car received the best Graphene treatment. His knowledge and attention to detail are truly commendable.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="reviewer-info">
+            <div class="avatar" style="background:#66BB6A;">SV</div>
+            <div>
+              <p class="reviewer-name">Srk V.</p>
+              <p class="review-time">4 months ago</p>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">I had a great experience getting Graphene coating detailing done here. Like anyone with a new car, I was initially unsure about going for detailing. But after speaking with Prashanth, all my doubts were cleared.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="reviewer-info">
+            <div class="avatar" style="background:#FFA726;">UG</div>
+            <div>
+              <p class="reviewer-name">Ujwal G.</p>
+              <p class="review-time">4 months ago</p>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">I had an excellent experience at Detailing Vertex! Got a graphene coating done for my vehicle, and the results are outstanding — the finish looks stunning and super glossy. The price was very good.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="reviewer-info">
+            <div class="avatar" style="background:#AB47BC;">AC</div>
+            <div>
+              <p class="reviewer-name">Abhilash C.</p>
+              <p class="review-time">6 months ago</p>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">I'm incredibly thankful to Detailing Vertex for the amazing work on my bike! After getting the PPF done, my bike looks absolutely stunning even better than I imagined. The quality of the work is truly exceptional.</p>
+        </div>
+
+        <div class="review-card">
+          <div class="reviewer-info">
+            <div class="avatar" style="background:#EF5350;">AN</div>
+            <div>
+              <p class="reviewer-name">Anju N.</p>
+              <p class="review-time">6 months ago</p>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">Good response and quality work.</p>
+        </div>
+
+      </div>
+      <button class="slider-arrow slider-next" onclick="slideReviews(1)" aria-label="Next">&#8250;</button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8: CONTACT / MAP
+  ============================================================ -->
+  <section class="contact" id="contact">
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.7063!2d78.5050!3d17.5000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMwJzAwLjAiTiA3OMKwMzAnMTguMCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Detailing Vertex Location">
+      </iframe>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="contact-form-grid">
+        <div class="form-group dark">
+          <input type="text" id="cName" placeholder="Name*" />
+        </div>
+        <div class="form-group dark">
+          <input type="tel" id="cPhone" placeholder="Phone No*" />
+        </div>
+        <div class="form-group dark">
+          <input type="email" id="cEmail" placeholder="Mail ID" />
+        </div>
+        <div class="form-group dark select-dark">
+          <select id="cService">
+            <option value="" disabled selected>Services*</option>
+            <option>Paint Protection Film</option>
+            <option>Ceramic Coating</option>
+            <option>Interior Foam Cleaning</option>
+            <option>Car Painting</option>
+            <option>Graphene Coating</option>
+            <option>Sunfilm Protection</option>
+          </select>
+          <svg class="select-arrow dark-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="18">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="form-group dark full-width">
+          <textarea id="cMessage" placeholder="Message" rows="5"></textarea>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="handleContactForm()">Submit Your Details</button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9: FAQ
+  ============================================================ -->
+  <section class="faq">
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Does The Detailing Vertex PPF protect against small scratches?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. Our Paint Protection Film is a self-healing thermoplastic urethane that absorbs minor scratches, stone chips and swirl marks. Light surface scratches disappear with heat exposure, keeping your car's paint pristine.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What is Graphene Coating and how is it different from Ceramic Coating?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Graphene coating uses graphene oxide particles for superior hydrophobic properties, better heat dissipation and stronger bonding compared to standard ceramic coating. It lasts longer and provides maximum gloss with enhanced scratch resistance.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can The Detailing Vertex clean only the interior of my car?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. We offer standalone interior deep cleaning services including foam wash, steam cleaning, dashboard treatment and seat shampooing. You don't need to opt for a full detailing package for interior-only services.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will PPF affect the appearance or colour of my car?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. PPF is optically clear and virtually invisible once applied. It preserves your car's original colour and finish while adding a protective layer. High-gloss and matte finish PPF options are also available.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What is The Detailing Vertex's 2-Year Accident Protection for PPF?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Our exclusive 2-Year Accident Protection means if your vehicle with PPF meets with an accident within 2 years of installation, we will redo the PPF on the affected panels at absolutely no cost to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 10: FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/Logo.png" alt="Detailing Vertex Logo" class="footer-logo" />
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Quick Links</p>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Contact Us</p>
+        <span>+91 80086 47733</span>
+        <span>Beside Sanjeeva Reddy Gardens, Machabollaram, Alwal, Secunderabad.</span>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Social Media</p>
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Buttons -->
+  <div class="floating-buttons">
+    <a href="tel:+918008647733" class="fab-btn fab-call" aria-label="Call Us">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+    </a>
+    <a href="https://wa.me/918008647733" target="_blank" class="fab-btn fab-whatsapp" aria-label="WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.855L.057 23.625a.75.75 0 0 0 .918.918l5.771-1.474A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.504-5.234-1.384l-.374-.214-3.882.993.996-3.87-.228-.386A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
