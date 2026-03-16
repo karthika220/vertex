@@ -138,9 +138,8 @@ button { cursor: pointer; font-family: var(--font); }
   gap: 40px;
 }
 .nav-logo {
-  background: var(--secondary);
-  padding: 8px;
-  border-radius: 8px;
+  background: transparent;
+  padding: 0;
   display: inline-block;
 }
 .nav-logo img {
@@ -148,6 +147,7 @@ button { cursor: pointer; font-family: var(--font); }
   width: auto;
   object-fit: contain;
   display: block;
+  background: transparent;
 }
 .nav-links {
   display: flex;
@@ -838,20 +838,16 @@ button { cursor: pointer; font-family: var(--font); }
   align-items: flex-start;
 }
 .footer-brand {
-  background: var(--primary);
-  padding: 12px;
-  border-radius: 8px;
+  background: transparent;
+  padding: 0;
   display: inline-block;
-}
-.footer-logo {
-  background: var(--primary);
-  display: block;
 }
 .footer-logo {
   height: 80px;
   width: auto;
   object-fit: contain;
   display: block;
+  background: transparent;
 }
 .footer-col {
   display: flex;
