@@ -910,9 +910,17 @@ button { cursor: pointer; font-family: var(--font); }
 
 @media (max-width: 640px) {
   .nav-container { padding: 0 20px; }
-  .hero-content { padding: 40px 20px; }
+  .hero-content { padding: 40px 20px; text-align: center; }
+  .hero-text { text-align: center; margin: 0 auto; }
   .hero-heading { font-size: 2rem; }
-  .services { padding: 56px 20px; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-cta { 
+    justify-content: center; 
+    flex-direction: column;
+    width: 100%;
+  }
+  .services { padding: 56px 20px; text-align: center; }
+  .services-header { text-align: center; }
   .services-grid { grid-template-columns: 1fr; }
   .contact-form-grid { grid-template-columns: 1fr; }
   .faq { padding: 48px 20px 64px; }
@@ -925,7 +933,8 @@ button { cursor: pointer; font-family: var(--font); }
     min-width: 100%;
     max-width: 100%;
   }
-  .reviews { padding: 48px 20px; }
+  .reviews { padding: 48px 20px; text-align: center; }
+  .reviews-header-bar { justify-content: center; }
   .slider-prev {
     left: -15px;
   }
@@ -939,14 +948,49 @@ button { cursor: pointer; font-family: var(--font); }
     padding: 8px;
     background: rgba(0, 0, 0, 0.6);
   }
-  .footer { padding: 40px 20px 28px; }
-  .footer-container { grid-template-columns: 1fr; gap: 28px; }
-  .about { padding: 56px 20px; }
-  .why-us { padding: 56px 20px; }
-  .ppf-highlight { padding: 56px 20px; }
-  .contact { padding: 56px 20px; align-items: stretch; }
+  .footer { padding: 40px 20px 28px; text-align: center; }
+  .footer-container { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .about { padding: 56px 20px; text-align: center; }
+  .about-left { text-align: center; margin: 0 auto; }
+  .about-features { justify-content: center; }
+  .about-feature { justify-content: center; text-align: center; }
+  .why-us { padding: 56px 20px; text-align: center; }
+  .why-content { text-align: center; }
+  .why-cta { justify-content: center; }
+  .ppf-highlight { padding: 56px 20px; text-align: center; }
+  .ppf-content { text-align: center; }
+  .ppf-cta { justify-content: center; }
+  .contact { padding: 56px 20px; align-items: stretch; text-align: center; }
   .contact-map iframe { height: 350px; }
   .contact-form-wrap { height: auto; }
+  .contact-form-wrap .btn-primary { 
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Make all buttons same size in mobile */
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 24px;
+    text-align: center;
+    display: block;
+    font-size: 0.95rem;
+  }
+  .hero-cta .btn-primary,
+  .hero-cta .btn-outline,
+  .why-cta .btn-primary,
+  .why-cta .btn-outline,
+  .ppf-cta .btn-primary,
+  .ppf-cta .btn-outline {
+    width: 100%;
+    max-width: 100%;
+  }
+  .mobile-menu .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* ============================================================
