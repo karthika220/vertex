@@ -824,9 +824,28 @@ button { cursor: pointer; font-family: var(--font); }
 /* ============================================================
    FOOTER
 ============================================================ */
-.footer {
+.footer-marketing {
   background: #000000;
   border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 24px 20px;
+  text-align: center;
+}
+.footer-marketing p {
+  font-size: 0.88rem;
+  color: var(--white);
+  margin: 0;
+}
+.footer-marketing a {
+  color: var(--white);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+.footer-marketing a:hover {
+  opacity: 0.8;
+}
+.footer {
+  background: #000000;
+  border-top: none;
   padding: 56px 80px 40px;
 }
 .footer-container {
