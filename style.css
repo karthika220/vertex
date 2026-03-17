@@ -1024,10 +1024,14 @@ button { cursor: pointer; font-family: var(--font); }
   .footer-bottom {
     margin-top: 24px;
     padding-top: 0;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
-  .footer-copyright {
-    text-align: center;
+  .footer-copyright,
+  .footer-marketing {
+    text-align: left;
+    width: 100%;
   }
   .about { padding: 56px 20px; text-align: left; }
   .about-left { text-align: left; margin: 0; }
