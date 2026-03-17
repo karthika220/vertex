@@ -1002,13 +1002,6 @@ button { cursor: pointer; font-family: var(--font); }
     padding: 8px;
     background: rgba(0, 0, 0, 0.6);
   }
-  .footer-marketing {
-    padding: 20px;
-    text-align: center;
-  }
-  .footer-marketing p {
-    font-size: 0.85rem;
-  }
   .footer { padding: 40px 20px 28px; text-align: left; }
   .footer-container { grid-template-columns: 1fr; gap: 28px; text-align: left; }
   .footer-brand {
