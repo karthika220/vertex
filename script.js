@@ -275,6 +275,70 @@ function handleContactForm() {
   window.location.href = 'thank-you.html';
 }
 
+/* ---- Track Button Clicks for Conversions ---- */
+document.addEventListener('DOMContentLoaded', () => {
+  // Track "Book Appointment" button clicks
+  const bookButtons = document.querySelectorAll('a[href="#contact"], .btn-primary');
+  bookButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const buttonText = this.textContent.trim();
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'button_click',
+          'event_category': 'Engagement',
+          'event_label': buttonText,
+          'button_location': this.closest('section')?.className || 'unknown'
+        });
+      }
+    });
+  });
+
+  // Track phone number clicks
+  const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+  phoneLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'phone_click',
+          'event_category': 'Contact',
+          'event_label': 'Phone Call',
+          'conversion_value': 1
+        });
+      }
+    });
+  });
+
+  // Track WhatsApp clicks
+  const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+  whatsappLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'whatsapp_click',
+          'event_category': 'Contact',
+          'event_label': 'WhatsApp Click',
+          'conversion_value': 1
+        });
+      }
+    });
+  });
+
+  // Track service card clicks
+  const serviceCards = document.querySelectorAll('.service-card');
+  serviceCards.forEach(card => {
+    card.addEventListener('click', function() {
+      const serviceName = this.querySelector('h3')?.textContent.trim() || 'Unknown Service';
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'service_view',
+          'event_category': 'Service',
+          'event_label': serviceName
+        });
+      }
+    });
+  });
+});
+
 /* ---- Scroll Reveal Animation ---- */
 const revealEls = document.querySelectorAll(
   '.service-card, .about-feature, .stat-item, .review-card, .faq-item'
