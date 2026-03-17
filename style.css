@@ -123,7 +123,7 @@ button { cursor: pointer; font-family: var(--font); }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: var(--secondary);
+  background: #000000;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: box-shadow var(--transition);
 }
@@ -825,7 +825,7 @@ button { cursor: pointer; font-family: var(--font); }
    FOOTER
 ============================================================ */
 .footer {
-  background: var(--primary);
+  background: #000000;
   border-top: 1px solid rgba(255,255,255,0.07);
   padding: 56px 80px 40px;
 }
