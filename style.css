@@ -825,9 +825,9 @@ button { cursor: pointer; font-family: var(--font); }
    FOOTER
 ============================================================ */
 .footer-marketing {
-  background: #000000;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 24px 20px;
+  max-width: 1400px;
+  margin: 32px auto 0;
+  padding: 0;
   text-align: center;
 }
 .footer-marketing p {
