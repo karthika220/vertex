@@ -924,17 +924,17 @@ button { cursor: pointer; font-family: var(--font); }
 
 @media (max-width: 640px) {
   .nav-container { padding: 0 20px; }
-  .hero-content { padding: 40px 20px; text-align: center; }
-  .hero-text { text-align: center; margin: 0 auto; }
+  .hero-content { padding: 40px 20px; text-align: left; }
+  .hero-text { text-align: left; margin: 0; }
   .hero-heading { font-size: 2rem; }
-  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-sub { margin-left: 0; margin-right: 0; }
   .hero-cta { 
-    justify-content: center; 
+    justify-content: flex-start; 
     flex-direction: column;
     width: 100%;
   }
-  .services { padding: 56px 20px; text-align: center; }
-  .services-header { text-align: center; }
+  .services { padding: 56px 20px; text-align: left; }
+  .services-header { text-align: left; }
   .services-grid { grid-template-columns: 1fr; }
   .contact-form-grid { grid-template-columns: 1fr; }
   .faq { padding: 48px 20px 64px; }
@@ -946,20 +946,20 @@ button { cursor: pointer; font-family: var(--font); }
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    text-align: center;
+    text-align: left;
   }
   .reviewer-info {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .reviewer-name,
   .review-time {
     text-align: left;
   }
   .stars {
-    text-align: center;
+    text-align: left;
   }
-  .reviews { padding: 48px 20px; text-align: center; }
-  .reviews-header-bar { justify-content: center; }
+  .reviews { padding: 48px 20px; text-align: left; }
+  .reviews-header-bar { justify-content: flex-start; }
   .slider-prev {
     left: -15px;
   }
@@ -973,23 +973,23 @@ button { cursor: pointer; font-family: var(--font); }
     padding: 8px;
     background: rgba(0, 0, 0, 0.6);
   }
-  .footer { padding: 40px 20px 28px; text-align: center; }
-  .footer-container { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .footer { padding: 40px 20px 28px; text-align: left; }
+  .footer-container { grid-template-columns: 1fr; gap: 28px; text-align: left; }
   .footer-brand {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     background: transparent;
   }
   .footer-logo {
     background: transparent;
   }
-  .about { padding: 56px 20px; text-align: center; }
-  .about-left { text-align: center; margin: 0 auto; }
-  .about-features { justify-content: center; }
-  .about-feature { justify-content: center; text-align: center; }
-  .why-us { padding: 56px 20px; text-align: center; }
+  .about { padding: 56px 20px; text-align: left; }
+  .about-left { text-align: left; margin: 0; }
+  .about-features { justify-content: flex-start; }
+  .about-feature { justify-content: flex-start; text-align: left; }
+  .why-us { padding: 56px 20px; text-align: left; }
   .why-images {
     width: 100%;
     flex-direction: column;
@@ -1001,12 +1001,12 @@ button { cursor: pointer; font-family: var(--font); }
     height: 260px;
     object-fit: cover;
   }
-  .why-content { text-align: center; }
-  .why-cta { justify-content: center; }
-  .ppf-highlight { padding: 56px 20px; text-align: center; }
-  .ppf-content { text-align: center; }
-  .ppf-cta { justify-content: center; }
-  .contact { padding: 56px 20px; align-items: stretch; text-align: center; }
+  .why-content { text-align: left; }
+  .why-cta { justify-content: flex-start; }
+  .ppf-highlight { padding: 56px 20px; text-align: left; }
+  .ppf-content { text-align: left; }
+  .ppf-cta { justify-content: flex-start; }
+  .contact { padding: 56px 20px; align-items: stretch; text-align: left; }
   .contact-map iframe { height: 350px; }
   .contact-form-wrap { height: auto; }
   .contact-form-grid {
