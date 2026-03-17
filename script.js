@@ -2,6 +2,10 @@
    DETAILING VERTEX — script.js
 ============================================================ */
 
+/* ---- Google Tag Manager DataLayer Initialization ---- */
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+
 /* ---- Navbar scroll shadow ---- */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -211,6 +215,27 @@ function handleHeroForm() {
   if (!phone || phone.length < 10) { alert('Please enter a valid phone number.'); return; }
   if (!service) { alert('Please select a service.'); return; }
 
+  // Track form submission event for GA4 and Google Ads
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      'event': 'form_submission',
+      'event_category': 'Form',
+      'event_label': 'Hero Form',
+      'form_name': 'Hero Appointment Form',
+      'service_selected': service,
+      'conversion_value': 1,
+      'conversion_label': 'hero_form_submit'
+    });
+    
+    // Google Ads conversion event
+    window.dataLayer.push({
+      'event': 'conversion',
+      'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+      'value': 1,
+      'currency': 'INR'
+    });
+  }
+
   // Redirect to thank you page
   window.location.href = 'thank-you.html';
 }
@@ -224,6 +249,27 @@ function handleContactForm() {
   if (!name) { alert('Please enter your name.'); return; }
   if (!phone || phone.length < 10) { alert('Please enter a valid phone number.'); return; }
   if (!service) { alert('Please select a service.'); return; }
+
+  // Track form submission event for GA4 and Google Ads
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      'event': 'form_submission',
+      'event_category': 'Form',
+      'event_label': 'Contact Form',
+      'form_name': 'Contact Form',
+      'service_selected': service,
+      'conversion_value': 1,
+      'conversion_label': 'contact_form_submit'
+    });
+    
+    // Google Ads conversion event
+    window.dataLayer.push({
+      'event': 'conversion',
+      'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+      'value': 1,
+      'currency': 'INR'
+    });
+  }
 
   // Redirect to thank you page
   window.location.href = 'thank-you.html';
