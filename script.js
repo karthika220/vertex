@@ -215,28 +215,12 @@ function handleHeroForm() {
   if (!phone || phone.length < 10) { alert('Please enter a valid phone number.'); return; }
   if (!service) { alert('Please select a service.'); return; }
 
-  // Track form submission event for GA4 and Google Ads
-  if (window.dataLayer) {
-    window.dataLayer.push({
-      'event': 'form_submission',
-      'event_category': 'Form',
-      'event_label': 'Hero Form',
-      'form_name': 'Hero Appointment Form',
-      'service_selected': service,
-      'conversion_value': 1,
-      'conversion_label': 'hero_form_submit'
-    });
-    
-    // Google Ads conversion event
-    window.dataLayer.push({
-      'event': 'conversion',
-      'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
-      'value': 1,
-      'currency': 'INR'
-    });
-  }
+  // Store form data in sessionStorage for thank-you page tracking
+  sessionStorage.setItem('formSubmitted', 'true');
+  sessionStorage.setItem('formType', 'hero');
+  sessionStorage.setItem('serviceSelected', service);
 
-  // Redirect to thank you page
+  // Redirect to thank you page (conversion will be tracked there)
   window.location.href = 'thank-you.html';
 }
 
@@ -250,28 +234,12 @@ function handleContactForm() {
   if (!phone || phone.length < 10) { alert('Please enter a valid phone number.'); return; }
   if (!service) { alert('Please select a service.'); return; }
 
-  // Track form submission event for GA4 and Google Ads
-  if (window.dataLayer) {
-    window.dataLayer.push({
-      'event': 'form_submission',
-      'event_category': 'Form',
-      'event_label': 'Contact Form',
-      'form_name': 'Contact Form',
-      'service_selected': service,
-      'conversion_value': 1,
-      'conversion_label': 'contact_form_submit'
-    });
-    
-    // Google Ads conversion event
-    window.dataLayer.push({
-      'event': 'conversion',
-      'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
-      'value': 1,
-      'currency': 'INR'
-    });
-  }
+  // Store form data in sessionStorage for thank-you page tracking
+  sessionStorage.setItem('formSubmitted', 'true');
+  sessionStorage.setItem('formType', 'contact');
+  sessionStorage.setItem('serviceSelected', service);
 
-  // Redirect to thank you page
+  // Redirect to thank you page (conversion will be tracked there)
   window.location.href = 'thank-you.html';
 }
 
@@ -293,32 +261,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Track phone number clicks
-  const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+  // Track ALL Call button clicks - Single Conversion Event
+  const phoneLinks = document.querySelectorAll('a[href^="tel:"], .fab-call');
   phoneLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(e) {
+      // Track conversion event for all call clicks
       if (window.dataLayer) {
         window.dataLayer.push({
-          'event': 'phone_click',
-          'event_category': 'Contact',
-          'event_label': 'Phone Call',
-          'conversion_value': 1
+          'event': 'call_conversion',
+          'event_category': 'Conversion',
+          'event_label': 'Call Click',
+          'conversion_type': 'call',
+          'conversion_value': 1,
+          'currency': 'INR'
         });
+        
+        // GA4 event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'call_conversion', {
+            'event_category': 'Conversion',
+            'event_label': 'Call Click',
+            'value': 1
+          });
+        }
       }
     });
   });
 
-  // Track WhatsApp clicks
-  const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+  // Track ALL WhatsApp button clicks - Single Conversion Event
+  const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"], .fab-whatsapp, .btn-whatsapp');
   whatsappLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(e) {
+      // Track conversion event for all WhatsApp clicks
       if (window.dataLayer) {
         window.dataLayer.push({
-          'event': 'whatsapp_click',
-          'event_category': 'Contact',
+          'event': 'whatsapp_conversion',
+          'event_category': 'Conversion',
           'event_label': 'WhatsApp Click',
-          'conversion_value': 1
+          'conversion_type': 'whatsapp',
+          'conversion_value': 1,
+          'currency': 'INR'
         });
+        
+        // GA4 event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'whatsapp_conversion', {
+            'event_category': 'Conversion',
+            'event_label': 'WhatsApp Click',
+            'value': 1
+          });
+        }
       }
     });
   });
